@@ -9,7 +9,25 @@ __license__ = "GPL"
 def print_data_command(filepath, instanceCreationDate=False, 
         accessionNumber=False, approvalStatus=False, 
         beamSequence=False, doseReferenceSequence=False, 
-        fractionGroupSequence=False):
+        fractionGroupSequence=False, instanceCreationTime=False,
+        institutionName=False, institutionalDepartmentName=False,
+        manufacture=False, manufactureModelName=False,
+        modality=False, operatorsName=False,
+        pationtBirthDate=False, pationID=False,
+        patientName=False, patientSetupSequence=False,
+        patientSex=False,
+        RTPlanDate=False, RTPlanGeometry=False,
+        RTPlanLabel=False, RTPlanName=False,
+        RTPlanTime=False,
+        RefdRTPlanSequence=False, RefdStructureSetSequence=False,
+        ReferencedRTPlanSequence=False, ReferencedStructureSetSequence=False,
+        ReferencedPhysicianName=False, ReferringPhysicianName=False,
+        SOPClassUID=False, SOPInstanceUID=False,
+        seriesInstanceUID=False, seriesNumber=False,
+        softwareVersions=False, stationName=False,
+        studyDate=False, studyID=False,
+        studyInstanceUID=False,
+        studyTime=False):
     """ Show dicom Data by given Parameter
 
     some commend foo
@@ -110,7 +128,7 @@ def print_data_command(filepath, instanceCreationDate=False,
         print str(plan.RefdStructureSetSequence)
     if ReferencedRTPlanSequence:
         print " ------------- Referenced RTPlanSequence -------------"
-        print str(plan.Referenced RTPlanSequence)
+        print str(plan.ReferencedRTPlanSequence)
     if ReferencedStructureSetSequence:
         print " ------------- Referenced Structure Set Sequence ----------"
         print str(plan.ReferencedStructureSetSequence)
