@@ -11,9 +11,9 @@ def print_data_command(filepath, instanceCreationDate=False,
         beamSequence=False, doseReferenceSequence=False, 
         fractionGroupSequence=False, instanceCreationTime=False,
         institutionName=False, institutionalDepartmentName=False,
-        manufacture=False, manufactureModelName=False,
+        manufacturer=False, manufacturerModelName=False,
         modality=False, operatorsName=False,
-        pationtBirthDate=False, pationID=False,
+        patientBirthDate=False, patientID=False,
         patientName=False, patientSetupSequence=False,
         patientSex=False,
         RTPlanDate=False, RTPlanGeometry=False,
@@ -21,7 +21,7 @@ def print_data_command(filepath, instanceCreationDate=False,
         RTPlanTime=False,
         RefdRTPlanSequence=False, RefdStructureSetSequence=False,
         ReferencedRTPlanSequence=False, ReferencedStructureSetSequence=False,
-        ReferencedPhysicianName=False, ReferringPhysicianName=False,
+        referringPhysicianName=False,
         SOPClassUID=False, SOPInstanceUID=False,
         seriesInstanceUID=False, seriesNumber=False,
         softwareVersions=False, stationName=False,
@@ -94,8 +94,8 @@ def print_data_command(filepath, instanceCreationDate=False,
         print "InstitutionName: " + plan.InstitutionName
     if manufacturer:
         print "Manufacturer: " + plan.Manufacturer
-    if manufacturerMode1Name:
-        print "ManufacturerMode1Name: " + plan.ManufacturerMode1Name
+    if manufacturerModelName:
+        print "ManufacturerModelName: " + plan.ManufacturerModelName
     if modality:
         print "Modality: " + plan.Modality
     if operatorsName:
@@ -112,7 +112,7 @@ def print_data_command(filepath, instanceCreationDate=False,
         print "PatientSex: " + plan.PatientSex
     if RTPlanDate:
         print "RTPlanDate: " + plan.RTPlanDate
-    if RTPlanGeomentry:
+    if RTPlanGeometry:
         print "RTPlanGeometry: " + plan.RTPlanGeometry
     if RTPlanLabel:
         print "RTPlanLabel: " + plan.RTPlanLabel
@@ -132,8 +132,8 @@ def print_data_command(filepath, instanceCreationDate=False,
     if ReferencedStructureSetSequence:
         print " ------------- Referenced Structure Set Sequence ----------"
         print str(plan.ReferencedStructureSetSequence)
-    if referencedPhysicianName:
-        print "ReferencedPhysicianName: " + plan.ReferencedPhysicianName
+    if referringPhysicianName:
+        print "ReferringPhysicianName: " + plan.ReferringPhysicianName
     if SOPClassUID:
         print "SOPClassUID: " + plan.SOPClassUID
     if SOPInstanceUID:
