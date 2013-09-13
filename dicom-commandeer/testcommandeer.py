@@ -1,9 +1,12 @@
 #!/usr/bin/env python 
 #-*- coding: utf-8 -*-
-""" Some Description to enter"""
+""" 
+A small and simple Shelltool basedn on the python dicom Libary 
+
+"""
 __author__ = "oerb"
-__copyright__ = "GPL 2013"
-__license__ = "GPL" 
+__copyright__ = "2013"
+__license__ = "GPL v3" 
 
 
 def print_data_command(filepath, instanceCreationDate=False, 
