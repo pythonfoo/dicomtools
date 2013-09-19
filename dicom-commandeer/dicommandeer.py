@@ -34,7 +34,7 @@ __copyright__ = "2013"
 __license__ = "GPL v3" 
 
 
-def print_data_command(filepath, instanceCreationDate=False, 
+def show_command(filepath, instanceCreationDate=False, 
         accessionNumber=False, approvalStatus=False, 
         beamSequence=False, doseReferenceSequence=False, 
         fractionGroupSequence=False, instanceCreationTime=False,
@@ -183,7 +183,7 @@ def print_data_command(filepath, instanceCreationDate=False,
     if studyTime:
         print "StudyTime: " + plan.StudyTime
 
-def edit_data_command(filepath, infos=False, accessionNumber="", newfilepath="",  instanceCreationDate=""):
+def edit_command(filepath, infos=False, accessionNumber="", newfilepath="",  instanceCreationDate=""):
     """ edit dicom Data by given Parameter
 
     Parameter:
@@ -227,12 +227,12 @@ def edit_data_command(filepath, infos=False, accessionNumber="", newfilepath="",
     @param studyID
     @param studyInstanceUID
     @param studyTime
-    @param infos is a Helper for development
     """
     
     import dicom
     import re
     plan = dicom.read_file(filepath)
+    """
     if infos:
         for parameter in dir(plan):
             if parameter[0].isupper():
@@ -250,16 +250,95 @@ def edit_data_command(filepath, infos=False, accessionNumber="", newfilepath="",
                     getattr(plan, parameter) = fooo # TODO: Ask Shezi for parametric instance
                 else:
                     print getattr(plan,parameter)
-                  
+    """
+
+
+    if accessionNumber:
+        plan.AccessionNumber = accessionNumber
+    if approvalStatus:
+        plan.ApprovalStatus = approvalStatus
+    if instanceCreation:
+        plan.InstanceCreation = instanceCreation
+    if instanceCreationDate:
+        plan.InstanceCreationDate = instanceCreationDate
+    if instanceCreationTime:
+        plan.InstanceCreationTime = instanceCreationTime
+    if institutionName:
+        plan.InstitutionName = institutionName
+    if institutionalDepartmentName:
+        plan.InstitutionalDepartmentName = institutionalDepartmentName
+    if manufacturer:
+        plan.Manufacturer = manufacturer
+    if manufacturerModelName:
+        plan.ManufacturerModelName = manufacturerModelName
+    if modality:
+        plan.Modality = modality
+    if operatorsName:
+        plan.OperatorsName = operatorsName
+    if patientBirthDate:
+        plan.PatientBirthDate = patientBirthDate
+    if patientID:
+        plan.PatientID = patientID
+    if patientName:
+        plan.PatientName = patientName
+    if patientSex:
+        plan.PatientSex = patientSex
+    if RTPlanDate:    
+        plan.RTPlanDate = RTPlanDate
+    if RTPlanGeometry:
+        plan.RTPlanGeometry = RTPlanGeometry
+    if RTPlanLabel:
+        plan.RTPlanLabel = RTPlanLabel
+    if RTPlanName:
+        plan.RTPlanName = RTPlanName
+    if RTPlanTime:
+        plan.RTPlanTime = RTPlanTime
+    if referringPhysicianName:
+        plan.RefferingPhysicianName = refferingPhysicianName
+    if SOPClassUID:
+        plan.SOPClassUID = SOPClassUID
+    if SOPInstanceUID:
+        plan.SOPInstanceUID = SOPInstanceUID
+    if seriesInstanceUID:
+        plan.SeriesInstanceUID = seriesInstanceUID
+    if seriesNumber:
+        plan.SeriesNumber = seriesNumber
+    if softwareVersions:
+        plan.SoftwareVersions = softwareVersions
+    if stationName:
+        plan.StationName = stationName
+    if studyDate:
+        plan.StudyDate = studyDate
+    if studyID:
+        plan.StudyID = studyID
+    if studyInstanceUID:
+        plan.StudyInstanceUID = studyInstanceUID
+    if studyTime:
+        plan.StudyTime = studyTime
+
     if instanceCreationDate:
         plan.InstanceCreationDate = instanceCreationDate
     if newfilepath:
         plan.save_as(newfilepath)
     else:
         plan.save_as(filepath)
-    if accessionNumber:
-        plan.AccessionNumber = accessionNumber
-    
+
+def clearall_command( filepath, newfilepath=""):
+    import dicom
+    import re
+    plan = dicom.read_file(filepath)
+
+    for parameter in dir(plan):
+        if parameter[0].isupper():
+            if not parameter.find("Sequence") == -1:
+                setattr(plan, parameter, []) 
+            else:
+                setattr(plan, parameter, "") 
+
+    if newfilepath:
+        plan.save_as(newfilepath)
+    else:
+        plan.save_as(filepath)
 
 if __name__ == '__main__':
     import commandeer
