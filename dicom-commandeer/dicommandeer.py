@@ -99,7 +99,7 @@ def show_command(filepath, instanceCreationDate=False,
     @param studyID
     @param studyInstanceUID
     @param studyTime
- 
+     
     """
     import dicom
     plan = dicom.read_file(filepath)
@@ -183,7 +183,23 @@ def show_command(filepath, instanceCreationDate=False,
     if studyTime:
         print "StudyTime: " + plan.StudyTime
 
-def edit_command(filepath, infos=False, accessionNumber="", newfilepath="",  instanceCreationDate=""):
+def edit_command(filepath, infos=False, accessionNumber="", newfilepath="",
+                    approvalStatus="", instanceCreation="",
+                    instanceCreationDate="", instanceCreationTime="",
+                    institutionName="", institutionalDepartmentName="",
+                    manufacturer="", manufacturerModelName="",
+                    modality="", operatorsName="",
+                    patientBirthDate="", patientID="",
+                    patientName="", patientSex="",
+                    RTPlanDate="", RTPlanGeometry="",
+                    RTPlanLabel="", RTPlanName="",
+                    RTPlanTime="", referringPhysicianName="",
+                    SOPClassUID="", SOPInstanceUID="",
+                    seriesInstanceUID="", seriesNumber="",
+                    softwareVersions="", stationName="",
+                    studyDate="", studyID="",
+                    studyInstanceUID="", studyTime=""):    
+
     """ edit dicom Data by given Parameter
 
     Parameter:
