@@ -1,7 +1,0 @@
-# DICOM-commandeer
-
-a simple dicom shelltool
-
-## for installation
-
-pip install -r dependencies
