@@ -1,4 +1,4 @@
 dicomtools
 ==========
 
-a simple dicom shelltool
+collection of dicom tools
