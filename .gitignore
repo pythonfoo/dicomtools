@@ -36,3 +36,9 @@ nosetests.xml
 
 # pycharm
 .idea
+
+# virtualenv
+env/
+
+# testfiles
+testfiles/
